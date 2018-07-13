@@ -1,0 +1,39 @@
+# PostgreSQL. Versions 9.1 and up are supported.
+#
+# Install the pg driver:
+#   gem install pg
+# On OS X with Homebrew:
+#   gem install pg -- --with-pg-config=/usr/local/bin/pg_config
+# On OS X with MacPorts:
+#   gem install pg -- --with-pg-config=/opt/local/lib/postgresql84/bin/pg_config
+# On Windows:
+#   gem install pg
+#       Choose the win32 build.
+#       Install PostgreSQL and put its /bin directory on your path.
+#
+# Configure Using Gemfile
+# gem 'pg'
+#
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  host: localhost
+  user: postgres
+  password: 123456
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: burajiru_ponto_api_development
+
+test:
+  <<: *default
+  database: burajiru_ponto_api_test
+
+production:
+  <<: *default
+  database: burajiru_ponto_api_production
+  username: burajiru_ponto_api
+  password: <%= ENV['BURAJIRU_PONTO_API_DATABASE_PASSWORD'] %>
