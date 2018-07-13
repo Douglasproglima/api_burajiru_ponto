@@ -2,6 +2,7 @@ class Api::V1::TipoContratosController < ApplicationController
   before_action :authenticate_with_token!
   respond_to :json
 
+  #
   def index
     tipo_contratos = current_user.tipo_contratos
     # tipo_contratos = TipoContrato.all()

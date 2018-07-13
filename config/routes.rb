@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   #Exemplo: namespace :admin do ... end
 
   #O namespace abaixo dará acesso externo da seguinte forma subdmonain.site.com/corpo_namespace
-  #O path é necessário para acessar direto o subdomain, do contrário ficaria subdmonain.site.com/api/corpo_namespace
+  #O path. é necessário para acessar direto o subdomain, do contrário ficaria subdmonain.site.com/api/corpo_namespace
   namespace :api, default: {format: :json}, constraints: {subdomain: 'api'}, path: '/' do
 
     #API - Versão 1.0
