@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       #Define a rota para o controller User
       resources :users, only: [:show, :create, :update, :destroy]
       resources :sessions, only: [:create, :destroy]
+      resources :tipo_contratos, only: [:index, :show, :create, :update, :destroy]
     end
   end
 
