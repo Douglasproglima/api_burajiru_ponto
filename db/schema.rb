@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180713152800) do
+ActiveRecord::Schema.define(version: 20180714142916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "empresas", force: :cascade do |t|
+    t.boolean  "ativo",                                           default: true
+    t.string   "razao_social"
+    t.string   "nome_fantasia"
+    t.string   "email"
+    t.string   "telefone_1"
+    t.string   "telefone_2"
+    t.decimal  "vlr_hora",               precision: 10, scale: 2, default: "0.0"
+    t.integer  "percentual_hora_extra",                           default: 0
+    t.integer  "percentual_add_noturno",                          default: 0
+    t.integer  "tipo_contrato_id"
+    t.integer  "user_id"
+    t.datetime "created_at",                                                      null: false
+    t.datetime "updated_at",                                                      null: false
+    t.index ["tipo_contrato_id"], name: "index_empresas_on_tipo_contrato_id", using: :btree
+    t.index ["user_id"], name: "index_empresas_on_user_id", using: :btree
+  end
 
   create_table "tipo_contratos", force: :cascade do |t|
     t.string   "descricao"
@@ -43,5 +61,7 @@ ActiveRecord::Schema.define(version: 20180713152800) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "empresas", "tipo_contratos"
+  add_foreign_key "empresas", "users"
   add_foreign_key "tipo_contratos", "users"
 end

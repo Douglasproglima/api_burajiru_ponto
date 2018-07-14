@@ -46,5 +46,7 @@ bower.json
 # Ignore Byebug command history file.
 .byebug_history
 .idea/workspace.xml
+.idea/inspectionProfiles/Project_Default.xml
+.idea/.rakeTasks
 
 # End of https://www.gitignore.io/api/rails

@@ -11,6 +11,7 @@ class User < ApplicationRecord
   #Entidades que usuário está relacionado
   # has_many :empresas, dependent: :destroy
   has_many :tipo_contratos, dependent: :destroy
+  has_many :empresas, dependent: :destroy
 
   def info
     "#{email} - #{created_at} - Token: #{Devise.friendly_token}"
