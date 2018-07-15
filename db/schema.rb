@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180714142916) do
+ActiveRecord::Schema.define(version: 20180715105842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,18 @@ ActiveRecord::Schema.define(version: 20180714142916) do
     t.datetime "updated_at",                                                      null: false
     t.index ["tipo_contrato_id"], name: "index_empresas_on_tipo_contrato_id", using: :btree
     t.index ["user_id"], name: "index_empresas_on_user_id", using: :btree
+  end
+
+  create_table "escala_trabalhos", force: :cascade do |t|
+    t.string   "descricao"
+    t.text     "obs"
+    t.boolean  "ativo",      default: true
+    t.integer  "user_id"
+    t.integer  "empresa_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["empresa_id"], name: "index_escala_trabalhos_on_empresa_id", using: :btree
+    t.index ["user_id"], name: "index_escala_trabalhos_on_user_id", using: :btree
   end
 
   create_table "tipo_contratos", force: :cascade do |t|
@@ -63,5 +75,7 @@ ActiveRecord::Schema.define(version: 20180714142916) do
 
   add_foreign_key "empresas", "tipo_contratos"
   add_foreign_key "empresas", "users"
+  add_foreign_key "escala_trabalhos", "empresas"
+  add_foreign_key "escala_trabalhos", "users"
   add_foreign_key "tipo_contratos", "users"
 end

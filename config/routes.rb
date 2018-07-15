@@ -20,7 +20,7 @@ Rails.application.routes.draw do
       resources :sessions, only: [:create, :destroy]
       resources :tipo_contratos, only: [:index, :show, :create, :update, :destroy]
       resources :empresas, only: [:index, :show, :create, :update, :destroy]
-
+      resources :escala_trabalhos, only: [:index, :show, :create, :update, :destroy]
     end
   end
 
