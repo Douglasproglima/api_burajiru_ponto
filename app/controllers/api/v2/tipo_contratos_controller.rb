@@ -5,7 +5,7 @@ class Api::V2::TipoContratosController < ApplicationController
   def index
     tipo_contratos = current_user.tipo_contratos
     # tipo_contratos = TipoContrato.all()
-    render json: { tipo_contratos: tipo_contratos }, status: 200
+    render json: tipo_contratos, status: 200
   end
 
   def show

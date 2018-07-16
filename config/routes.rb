@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     end
 
     #API - Versão 2.0
-    namespace :v1, path: '/', constraints: ApiVersionConstraint.new(version: 2, default: true) do
+    namespace :v2, path: '/', constraints: ApiVersionConstraint.new(version: 2, default: true) do
       resources :users, only: [:show, :create, :update, :destroy]
       resources :sessions, only: [:create, :destroy]
       resources :tipo_contratos, only: [:index, :show, :create, :update, :destroy]

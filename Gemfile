@@ -64,4 +64,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #Gem responsável pela parte de autenticação e controle de acesso do usuário no sistema
 gem 'devise'
 
-# gem 'active_model_serializers', '~> 0.10.0'
+#Gem Responsável por retornar os atributos serializados no caso de JSON
+gem 'active_model_serializers', '~> 0.10.0'
