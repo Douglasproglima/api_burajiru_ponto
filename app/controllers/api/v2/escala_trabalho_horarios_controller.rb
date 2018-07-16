@@ -55,6 +55,6 @@ class Api::V2::EscalaTrabalhoHorariosController < ApplicationController
 
   private
   def escala_trabalho_horario_params
-    params.require(:escala_trabalho_horario).permit(:descricao, :hora_inicio.to_t, :hora_fim.to_t, :escala_trabalho_id)
+    params.require(:escala_trabalho_horario).permit(:descricao, :hora_inicio, :hora_fim, :escala_trabalho_id)
   end
 end

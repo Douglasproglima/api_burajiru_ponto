@@ -4,7 +4,7 @@ class Api::V2::DiaPontosController < ApplicationController
   respond_to :json
 
   def index
-    dia_pontos = current_user.dia_pontos
+    dia_pontos = current_user.dia_pontos.ransack(params[:q]).result
     render json: dia_pontos.order('id DESC'), status: 200
   end
 

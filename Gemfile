@@ -66,3 +66,6 @@ gem 'devise'
 
 #Gem Responsável por retornar os atributos serializados no caso de JSON
 gem 'active_model_serializers', '~> 0.10.0'
+
+#Gem responsável pela ordernação e busca dos dados back-end To front-end
+gem 'ransack'
