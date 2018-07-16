@@ -1,4 +1,4 @@
-class Api::V1::EmpresasController < ApplicationController
+class Api::V1::EmpresasController < Api::V1::BaseController
 
   before_action :authenticate_with_token!
   respond_to :json

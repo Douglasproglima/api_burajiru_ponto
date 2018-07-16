@@ -1,4 +1,4 @@
-class Api::V2::TipoContratosController < ApplicationController
+class Api::V2::TipoContratosController < Api::V2::BaseController
   before_action :authenticate_with_token!
   respond_to :json
 

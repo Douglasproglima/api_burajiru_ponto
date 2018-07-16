@@ -1,4 +1,4 @@
-class Api::V2::DiaPontosController < ApplicationController
+class Api::V2::DiaPontosController < Api::V2::BaseController
 
   before_action :authenticate_with_token!
   respond_to :json
