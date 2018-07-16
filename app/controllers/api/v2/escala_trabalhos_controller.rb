@@ -5,7 +5,7 @@ class Api::V2::EscalaTrabalhosController < ApplicationController
 
   def index
     escala_trabalhos = current_user.escala_trabalhos
-    render json: { escala_trabalhos: escala_trabalhos }, status: 200
+    render json: escala_trabalhos , status: 200
   end
 
   def show
@@ -41,6 +41,6 @@ class Api::V2::EscalaTrabalhosController < ApplicationController
 
   private
   def escala_trabalho_params
-    params.require(:escala_trabalho).permit(:ativo, :descricao, :obs, :user_id, :empresa_id)
+    params.require(:escala_trabalho).permit(:ativo, :descricao, :obs, :user_id, :id_empresa)
   end
 end
