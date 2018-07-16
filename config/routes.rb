@@ -13,9 +13,22 @@ Rails.application.routes.draw do
 
     #API - Versão 1.0
     #Na pasta lib contém o arquivo de controle de constraints da API que possui a class ApiVersionConstraint
-    namespace :v1, path: '/', constraints: ApiVersionConstraint.new(version: 1, default: true) do
+    namespace :v1, path: '/', constraints: ApiVersionConstraint.new(version: 1) do
 
       #Define a rotas do Sistema
+      resources :users, only: [:show, :create, :update, :destroy]
+      resources :sessions, only: [:create, :destroy]
+      resources :tipo_contratos, only: [:index, :show, :create, :update, :destroy]
+      resources :empresas, only: [:index, :show, :create, :update, :destroy]
+      resources :escala_trabalhos, only: [:index, :show, :create, :update, :destroy]
+      resources :escala_trabalho_horarios, only: [:index, :show, :create, :update, :destroy]
+      resources :parametros, only: [:index, :show, :create, :update, :destroy]
+      resources :dia_pontos, only: [:index, :show, :create, :update, :destroy]
+      resources :pontos, only: [:index, :show, :create, :update, :destroy]
+    end
+
+    #API - Versão 2.0
+    namespace :v1, path: '/', constraints: ApiVersionConstraint.new(version: 2, default: true) do
       resources :users, only: [:show, :create, :update, :destroy]
       resources :sessions, only: [:create, :destroy]
       resources :tipo_contratos, only: [:index, :show, :create, :update, :destroy]
