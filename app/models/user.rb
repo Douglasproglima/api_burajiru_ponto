@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :tipo_contratos, dependent: :destroy
   has_many :empresas, dependent: :destroy
   has_many :escala_trabalhos, dependent: :destroy
+  has_many :parametros, dependent: :destroy
 
   def info
     "#{email} - #{created_at} - Token: #{Devise.friendly_token}"
