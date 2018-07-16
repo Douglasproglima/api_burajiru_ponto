@@ -24,6 +24,7 @@ Rails.application.routes.draw do
       resources :escala_trabalho_horarios, only: [:index, :show, :create, :update, :destroy]
       resources :parametros, only: [:index, :show, :create, :update, :destroy]
       resources :dia_pontos, only: [:index, :show, :create, :update, :destroy]
+      resources :pontos, only: [:index, :show, :create, :update, :destroy]
     end
   end
 

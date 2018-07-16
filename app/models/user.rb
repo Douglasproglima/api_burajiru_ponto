@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :escala_trabalhos, dependent: :destroy
   has_many :parametros, dependent: :destroy
   has_many :dia_pontos, dependent: :destroy
+  has_many :pontos, dependent: :destroy
 
   def info
     "#{email} - #{created_at} - Token: #{Devise.friendly_token}"

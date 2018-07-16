@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180716104639) do
+ActiveRecord::Schema.define(version: 20180716110443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,17 @@ ActiveRecord::Schema.define(version: 20180716104639) do
     t.index ["user_id"], name: "index_parametros_on_user_id", using: :btree
   end
 
+  create_table "pontos", force: :cascade do |t|
+    t.time     "hora_inicio"
+    t.time     "hora_fim"
+    t.integer  "user_id"
+    t.integer  "dia_ponto_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["dia_ponto_id"], name: "index_pontos_on_dia_ponto_id", using: :btree
+    t.index ["user_id"], name: "index_pontos_on_user_id", using: :btree
+  end
+
   create_table "tipo_contratos", force: :cascade do |t|
     t.string   "descricao"
     t.text     "obs"
@@ -114,5 +125,7 @@ ActiveRecord::Schema.define(version: 20180716104639) do
   add_foreign_key "parametros", "empresas"
   add_foreign_key "parametros", "escala_trabalhos"
   add_foreign_key "parametros", "users"
+  add_foreign_key "pontos", "dia_pontos"
+  add_foreign_key "pontos", "users"
   add_foreign_key "tipo_contratos", "users"
 end
