@@ -69,3 +69,9 @@ gem 'active_model_serializers', '~> 0.10.0'
 
 #Gem responsável pela ordernação e busca dos dados back-end To front-end
 gem 'ransack'
+
+#Padroniza a autenticação de vários provedores para aplicativos da Web
+gem 'omniauth'
+
+#Gem responsável por gerar um Token novo a cada requisição em um intervalo de 5 seg.
+gem 'devise_token_auth'

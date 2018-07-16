@@ -1,7 +1,6 @@
 require 'api_version_constraint'
 
 Rails.application.routes.draw do
-
   devise_for :users, only: [:sessions], controllers: {sessions: 'api/v1/sessions'}
 
   #Rotas referente há API, caso necessário criar um namespace separado para a área administrativa
@@ -29,6 +28,9 @@ Rails.application.routes.draw do
 
     #API - Versão 2.0
     namespace :v2, path: '/', constraints: ApiVersionConstraint.new(version: 2, default: true) do
+
+      mount_devise_token_auth_for 'User', at: 'auth'
+
       resources :users, only: [:show, :create, :update, :destroy]
       resources :sessions, only: [:create, :destroy]
       resources :tipo_contratos, only: [:index, :show, :create, :update, :destroy]
