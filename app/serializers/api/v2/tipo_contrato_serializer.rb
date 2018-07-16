@@ -1,5 +1,5 @@
 class Api::V2::TipoContratoSerializer < ActiveModel::Serializer
-  attributes :id, :descricao, :obs, :created_at, :updated_at,
+  attributes :id, :user_id, :descricao, :obs, :created_at, :updated_at,
              :descricao_resumida, :is_alterado
 
   def descricao_resumida
@@ -10,5 +10,5 @@ class Api::V2::TipoContratoSerializer < ActiveModel::Serializer
     object.updated_at > object.created_at if object.updated_at.present?
   end
 
-  belongs_to :user
+  # belongs_to :user
 end
