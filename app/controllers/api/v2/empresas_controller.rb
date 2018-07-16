@@ -5,7 +5,7 @@ class Api::V2::EmpresasController < ApplicationController
 
   def index
     empresas = current_user.empresas
-    render json: empresas, status: 200
+    render json: empresas.order('id DESC'), status: 200
   end
 
   def show

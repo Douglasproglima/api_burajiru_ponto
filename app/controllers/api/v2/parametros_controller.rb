@@ -5,7 +5,7 @@ class Api::V2::ParametrosController < ApplicationController
 
   def index
     parametros = current_user.parametros
-    render json: { parametros: parametros }, status: 200
+    render json: parametros.order('id DESC'), status: 200
   end
 
   def show

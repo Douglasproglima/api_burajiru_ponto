@@ -5,7 +5,7 @@ class Api::V2::DiaPontosController < ApplicationController
 
   def index
     dia_pontos = current_user.dia_pontos
-    render json: { dia_pontos: dia_pontos }, status: 200
+    render json: dia_pontos.order('id DESC'), status: 200
   end
 
   def show

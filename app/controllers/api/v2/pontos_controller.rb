@@ -5,7 +5,7 @@ class Api::V2::PontosController < ApplicationController
 
   def index
     pontos = current_user.pontos
-    render json: { pontos: pontos }, status: 200
+    render json: pontos.order('id DESC'), status: 200
   end
 
   def show
