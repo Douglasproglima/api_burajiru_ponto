@@ -25,7 +25,7 @@ RSpec.describe 'Usuários da API', type: :request do
 
     context 'Quando o usuário existir' do
       it 'Retorna o usuário' do
-        expect(json_body[:id]).to eq(user_id)
+        expect(json_body[:data][:id].to_i).to eq(user_id)
       end
 
       it 'Retorna o código status: 200 OK' do
@@ -56,7 +56,7 @@ RSpec.describe 'Usuários da API', type: :request do
       end
 
       it 'Retorna JSON com os dados do usuário criado' do
-        expect(json_body[:email]).to eq(user_params[:email])
+        expect(json_body[:data][:attributes][:email]).to eq(user_params[:email])
       end
     end
 
@@ -87,7 +87,7 @@ RSpec.describe 'Usuários da API', type: :request do
       end
 
       it 'Retorna JSON com os dados do usuário atualizado' do
-        expect(json_body[:email]).to eq(user_params[:email])
+        expect(json_body[:data][:attributes][:email]).to eq(user_params[:email])
       end
     end
 
