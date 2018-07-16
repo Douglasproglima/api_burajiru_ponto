@@ -29,7 +29,7 @@ RSpec.describe 'Sessão da API', type: :request do
 
       it 'Retorna os dados do usuário autenticado(auth token)' do
         user.reload #Força a pegar os dados atuais do banco de dados.
-        expect(json_body[:auth_token]).to eq(user.auth_token)
+        expect(json_body[:data][:attributes][:'auth-token']).to eq(user.auth_token)
       end
     end
 
