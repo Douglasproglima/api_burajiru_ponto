@@ -8,11 +8,15 @@ RSpec.describe 'Empresas API' do
   before { host! 'api.localhost.dev' }
 
   let!(:user) { create(:user) }  #cria o usuário
+  let!(:auth_data) { user.create_new_auth_token }
   let(:headers) do
     {
         'Accept' => 'application/vnd.burajiru_ponto.v2',
         'Content-Type' => Mime[:json].to_s,
-        'Authorization' => user.auth_token
+        # 'Authorization' => user.auth_token
+        'access-token' => auth_data['access-token'],
+        'client' => auth_data['client'],
+        'uid' => auth_data['uid']
     }
   end
 

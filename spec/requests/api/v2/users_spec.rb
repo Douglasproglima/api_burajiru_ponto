@@ -1,20 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe 'Usuários da API', type: :request do
-  #OS TESTES REALIZADOS NESSA ETAPA SÃO NO BANCO DE DADOS.
-
+RSpec.describe 'Users API', type: :request do
   let!(:user) { create(:user) }
-  # let!(:user_id) { user.id }
   let!(:auth_data) { user.create_new_auth_token }
-
   let(:headers) do
     {
         'Accept' => 'application/vnd.burajiru_ponto.v2',
         'Content-Type' => Mime[:json].to_s,
-        # 'Authorization' => user.auth_token,
         'access-token' => auth_data['access-token'],
-        'client' => auth_data['client'],
-        'uid' => auth_data['uid']
+        'uid' => auth_data['uid'],
+        'client' => auth_data['client']
     }
   end
 
@@ -27,7 +22,7 @@ RSpec.describe 'Usuários da API', type: :request do
 
     context 'Quando o cabeçalho da requisição forem válidos' do
       before do
-        get '/users/auth/validate_token', params: {}, headers: headers
+        get '/auth/validate_token', params: {}, headers: headers
       end
 
       it 'Retorna o usuário' do
@@ -42,7 +37,7 @@ RSpec.describe 'Usuários da API', type: :request do
     context 'Quando o cabeçalho da requisição não forem válidos' do
       before do
         headers['access-token'] = "token_invalido"
-        get '/users/auth/validate_token', params: {}, headers: headers
+        get '/auth/validate_token', params: {}, headers: headers
       end
 
       it 'Retorna o código status: 401 ERRO' do
@@ -83,7 +78,6 @@ RSpec.describe 'Usuários da API', type: :request do
     end
   end
 
-  #Verbo PUT
   describe 'PUT /auth' do
     before do
       put '/auth', params: user_params.to_json, headers: headers
@@ -102,7 +96,7 @@ RSpec.describe 'Usuários da API', type: :request do
     end
 
     context 'Quando a requisição passando parâmetros é invalida' do
-      let(:user_params) { { email: 'iemail_invalido@' } }
+      let(:user_params) { { email: 'invalid_email@' } }
 
       it 'Retorna código status: 422 ERRO' do
         expect(response).to have_http_status(422)
