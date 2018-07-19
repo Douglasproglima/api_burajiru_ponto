@@ -3,7 +3,7 @@ class Api::V2::TipoContratoSerializer < ActiveModel::Serializer
              :descricao_resumida, :is_alterado
 
   def descricao_resumida
-    object.descricao[0..10]
+    object.descricao[0..10] if object.updated_at.present?
   end
 
   def is_alterado
