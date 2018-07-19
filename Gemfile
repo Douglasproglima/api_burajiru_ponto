@@ -42,7 +42,7 @@ group :development, :test do
 end
 
 group :test do
-  # gem 'database_cleaner'
+  gem 'database_cleaner'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'factory_girl_rails'
   gem 'faker'
@@ -64,4 +64,21 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #Gem responsável pela parte de autenticação e controle de acesso do usuário no sistema
 gem 'devise'
 
-# gem 'active_model_serializers', '~> 0.10.0'
+#Gem Responsável por retornar os atributos serializados no caso de JSON
+gem 'active_model_serializers', '~> 0.10.0'
+
+#Gem responsável pela ordernação e busca dos dados back-end To front-end
+gem 'ransack'
+
+#Padroniza a autenticação de vários provedores para aplicativos da Web
+gem 'omniauth'
+
+#Gem responsável por gerar um Token novo a cada requisição em um intervalo de 5 seg.
+gem 'devise_token_auth'
+
+#Gem oferece recurso de compartilhamento com o CORS((Cross-Origin Resource Sharing)
+# para aplicativos da Web compatíveis com Rack.
+gem 'rack-cors'
+
+# Tradução das Mensagens
+gem 'rails-i18n', '~> 5.1'

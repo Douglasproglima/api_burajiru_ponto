@@ -1,11 +1,12 @@
-class Api::V2::TipoContratosController < ApplicationController
-  before_action :authenticate_with_token!
+class Api::V2::TipoContratosController < Api::V2::BaseController
+
+  before_action :authenticate_user!
   respond_to :json
 
   def index
     tipo_contratos = current_user.tipo_contratos
     # tipo_contratos = TipoContrato.all()
-    render json: { tipo_contratos: tipo_contratos }, status: 200
+    render json: tipo_contratos.order('id DESC'), status: 200
   end
 
   def show

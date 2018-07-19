@@ -1,11 +1,11 @@
-class Api::V2::EscalaTrabalhoHorariosController < ApplicationController
+class Api::V2::EscalaTrabalhoHorariosController < Api::V2::BaseController
 
-  before_action :authenticate_with_token!
+  before_action :authenticate_user!
   respond_to :json
 
   def index
-    escala_trabalho_horarios = EscalaTrabalhoHorario.all()
-    render json: { escala_trabalho_horarios: escala_trabalho_horarios }, status: 200
+    escala_trabalho_horarios = EscalaTrabalhoHorario.order('id DESC')
+    render json: escala_trabalho_horarios, status: 200
   end
 
   #Criar método para passar o id pai(id escala) e retornar todos os horários relacionados.

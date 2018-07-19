@@ -1,11 +1,11 @@
-class Api::V2::DiaPontosController < ApplicationController
+class Api::V2::DiaPontosController < Api::V2::BaseController
 
-  before_action :authenticate_with_token!
+  before_action :authenticate_user!
   respond_to :json
 
   def index
-    dia_pontos = current_user.dia_pontos
-    render json: { dia_pontos: dia_pontos }, status: 200
+    dia_pontos = current_user.dia_pontos.ransack(params[:q]).result
+    render json: dia_pontos.order('id DESC'), status: 200
   end
 
   def show

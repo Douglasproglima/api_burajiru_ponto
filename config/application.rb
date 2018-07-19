@@ -19,6 +19,6 @@ Bundler.require(*Rails.groups)
 module BurajiruPontoApi
   class Application < Rails::Application
     config.api_only = true
-    # config.i18n.default_locale = :'pt-BR'
+    config.i18n.default_locale = :'pt-BR'
   end
 end

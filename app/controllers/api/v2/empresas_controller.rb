@@ -1,11 +1,11 @@
-class Api::V2::EmpresasController < ApplicationController
+class Api::V2::EmpresasController < Api::V2::BaseController
 
-  before_action :authenticate_with_token!
+  before_action :authenticate_user!
   respond_to :json
 
   def index
     empresas = current_user.empresas
-    render json: { empresas: empresas }, status: 200
+    render json: empresas.order('id DESC'), status: 200
   end
 
   def show
