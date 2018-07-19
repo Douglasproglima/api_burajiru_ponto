@@ -24,10 +24,10 @@ API - Backend Ruby on Rails
 	
 Exemplo de Requisição:
 -------------
-	GET    -> http://www.burajiru_ponto.com/dia_ponto/1
-	POST   -> http://www.burajiru_ponto.com/dia_ponto
-    PUT    -> http://www.burajiru_ponto.com/dia_ponto/1
-    DELETE -> http://www.burajiru_ponto.com/dia_ponto/1
+	GET    -> http://www.burajiruponto.com/dia_ponto/1
+	POST   -> http://www.burajiruponto.com/dia_ponto
+    PUT    -> http://www.burajiruponto.com/dia_ponto/1
+    DELETE -> http://www.burajiruponto.com/dia_ponto/1
 
 ----------------------------
 Este projeto foi desenvolvido por [Douglas Lima](https://github.com/douglasproglima). Ele segue seu código de conduta e diretrizes de contribuição.

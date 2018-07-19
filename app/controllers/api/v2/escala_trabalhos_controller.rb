@@ -1,11 +1,11 @@
-class Api::V2::EscalaTrabalhosController < ApplicationController
+class Api::V2::EscalaTrabalhosController < Api::V2::BaseController
 
-  before_action :authenticate_with_token!
+  before_action :authenticate_user!
   respond_to :json
 
   def index
     escala_trabalhos = current_user.escala_trabalhos
-    render json: { escala_trabalhos: escala_trabalhos }, status: 200
+    render json: escala_trabalhos.order('id DESC') , status: 200
   end
 
   def show

@@ -80,7 +80,7 @@ RSpec.describe 'Usuários da API', type: :request do
     end
 
     context 'Quando a requisição passando parâmetros é válida' do
-      let(:user_params) { { email: 'new_email@burajiru_ponto.com' } }
+      let(:user_params) { { email: 'new_email@burajiruponto.com' } }
 
       it 'Retorna código status: 200 OK' do
         expect(response).to have_http_status(200)

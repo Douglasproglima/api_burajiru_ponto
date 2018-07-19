@@ -1,11 +1,11 @@
-class Api::V2::PontosController < ApplicationController
+class Api::V2::PontosController < Api::V2::BaseController
 
-  before_action :authenticate_with_token!
+  before_action :authenticate_user!
   respond_to :json
 
   def index
     pontos = current_user.pontos
-    render json: { pontos: pontos }, status: 200
+    render json: pontos.order('id DESC'), status: 200
   end
 
   def show
