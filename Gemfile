@@ -79,3 +79,6 @@ gem 'devise_token_auth'
 #Gem oferece recurso de compartilhamento com o CORS((Cross-Origin Resource Sharing)
 # para aplicativos da Web compatíveis com Rack.
 gem 'rack-cors'
+
+# Tradução das Mensagens
+gem 'rails-i18n', '~> 5.1'
