@@ -218,6 +218,9 @@ pt-BR:
       default: "%a, %d de %B de %Y, %H:%M:%S %z"
       long: "%d de %B de %Y, %H:%M"
       short: "%d de %B, %H:%M"
+      datetime: "%d/%m/%Y %H:%M"
+      datetime_to_seconds: "%d/%m/%Y %H:%M:%S"
+      time_to_br: "%H:%M"
     pm: ''
 
   devise:
